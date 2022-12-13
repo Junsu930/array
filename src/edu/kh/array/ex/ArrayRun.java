@@ -4,9 +4,12 @@ public class ArrayRun {
 
 	public static void main(String[] args) {
 		
-		ArrayExample1 arrayex =  new ArrayExample1();
+		ArrayExample2 arrayex2 =  new ArrayExample2();
 		
-		arrayex.ex7();
+		
+		arrayex2.createLottoNumber();
+	
+	
 	}
 
 }

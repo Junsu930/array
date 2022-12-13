@@ -11,8 +11,7 @@ public class ArrayExample1 {
 	 * (index는 0부터 시작하는 정수)
 	 * 
 	 */
-	
-	public void ex1() { 
+	public void ex1 () { 
 		//번수 vs 배열
 		
 		// 1-1. 변수 선언
@@ -217,4 +216,55 @@ public class ArrayExample1 {
 			System.out.println("값이 존재하지 않습니다.");
 		}
 	}
+
+	public void ex8() {
+		// 1. 문자열을 입력받아 한 글짜씩 잘라내어 char 배열에 순서대로 저장
+		
+		// 2. 문자 하나를 입력받아 일치하는 문자가 char 배열에 몇 개 존재하는지 확인
+		
+		// 3. 단 일치하는 문자가 없을 경우 "존재하지 않습니다" 출력
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("문자열을 입력하시오 : ");
+		String st1 = sc.nextLine();
+				
+		char[] ch1 = new char[st1.length()];
+		
+		// 문자열을 입력받아 한 글자씩 char 배열에 저장함
+		for(int i = 0; i < st1.length(); i++) {
+			ch1 [i] = st1.charAt(i);
+		}
+		
+		// 중간 확인
+		// System.out.println(Arrays.toString(ch1));
+		
+		//boolean flag = false;
+		
+		System.out.print("찾을 문자를 입력하시오 : ");
+		char ch2 = sc.nextLine().charAt(0);
+	
+		int count= 0;
+		
+		for(int j = 0; j < ch1.length; j++ ) {
+			if(ch1[j] == ch2){
+				count ++;
+	
+				//flag = true;
+			}
+			
+		}
+		/*if(!flag) {
+			System.out.printf("일치하는 값이 존재하지 않습니다");
+		} else {
+			System.out.printf("일치하는 문자의 수는 : %d 입니다.\n", count);
+		}
+		*/
+		if(count > 0 ) {
+			System.out.printf("일치하는 문자의 수는 : %d 입니다.\n", count);
+		} else {
+			System.out.printf("일치하는 값이 존재하지 않습니다");
+		}
+	}
 }
+
+
