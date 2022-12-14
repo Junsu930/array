@@ -7,7 +7,7 @@ public class PracticeRun {
 		
 		PracticeService ps = new PracticeService();
 		
-		ps.practice14();
+		ps.practice14_1();
 		
 	}
 

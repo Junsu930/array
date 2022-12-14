@@ -79,17 +79,10 @@ public class PracticeService {
 		
 		int arr[] = new int[5];
 		
-		System.out.print("입력 0 :");
-		arr[0] = sc.nextInt();
-		System.out.print("입력 1 :");
-		arr[1] = sc.nextInt();
-		System.out.print("입력 2 :");
-		arr[2] = sc.nextInt();
-		System.out.print("입력 3 :");
-		arr[3] = sc.nextInt();
-		System.out.print("입력 4 :");
-		arr[4] = sc.nextInt();
-		
+		for(int i= 0; i<5; i++) {
+		System.out.printf("입력 %d :", i);
+		arr[i] = sc.nextInt();
+		}
 		System.out.print("검색할 값 : ");
 		int search = sc.nextInt();
 		boolean flag = false;
@@ -187,30 +180,31 @@ public class PracticeService {
 		}
 		
 		for(int i= 0; i < arr.length; i ++) {
-			System.out.print(arr[i] + " ");
+			if(i==0) {
+				System.out.print(arr[i]);
+			}else {
+			System.out.print(", " + arr[i] );
+			}
 		}
-
 	}
-
 
 	public void practice9() {
 		int randomarr[] = new int[10];
 		
+		System.out.print("발생한 난수 : ");
 		for(int i = 0; i < randomarr.length; i++) {
 			randomarr[i] = (int)(Math.random()*10+1);
+			System.out.print(randomarr[i] + " ");
 		}
-		
-		//난수 대입
-			
-		System.out.print("발생한 난수 : " + Arrays.toString(randomarr));
 	}
 	
 	public void practice10() {
 		
 		int randomarr[] = new int[10];
-		
+		System.out.print("발생한 난수 : ");
 		for(int i = 0; i < randomarr.length; i++) {
 			randomarr[i] = (int)(Math.random()*10+1);
+			System.out.print(randomarr[i] + " ");
 		}
 		
 		//난수 발생 완료
@@ -231,7 +225,7 @@ public class PracticeService {
 			}
 		
 		}
-		System.out.println("발생한 난수 : " + Arrays.toString(randomarr));
+		System.out.println();
 		System.out.println("최대값 : " + max);
 		System.out.println("최소값 : " + min);
 	}
@@ -250,7 +244,9 @@ public class PracticeService {
 				}
 			}
 		}
-		System.out.println(Arrays.toString(randomarr));
+		for(int i = 0; i < randomarr.length; i++) {
+			System.out.print(randomarr[i] + " ");
+		}
 	}
 	
 	public void practice12() {
@@ -268,7 +264,9 @@ public class PracticeService {
 			}
 		}
 		Arrays.sort(randomarr);  // 오름차 정렬
-		System.out.println(Arrays.toString(randomarr));
+		for(int i = 0; i < randomarr.length; i++) {
+			System.out.print(randomarr[i] + " ");
+		}
 	}
 
 	public void practice13() {
@@ -353,6 +351,80 @@ public class PracticeService {
 			}	
 		}
 		System.out.println(Arrays.toString(st1));
+	}
+
+	public void practice13_1() { 
+		
+		System.out.print("문자열 : ");
+		String st = sc.nextLine();
+		int count = 0;
+		char ch[] = new char[st.length()];
+		
+		for(int i = 0; i < ch.length; i++) {
+			ch[i] = st.charAt(i);
+		}
+		
+		System.out.print("문자열에 있는 문자 : ");
+		
+		for(int i = 0; i<ch.length; i++) {
+			boolean flag = true; 
+			for(int j = 0; j<i; j++) {
+				if(ch[j] == ch[i]) {
+					flag = false;
+					break;
+				}
+			}
+			if(flag) {
+				if(i==0) {
+					System.out.print(ch[i]);
+				}else {
+					System.out.print(", " + ch[i]);
+				}
+				count++;
+			}
+		}
+		System.out.println();
+		System.out.print("문자 개수 : " + count);
+	}
+
+	public void practice14_1() {
+		
+		System.out.print("배열의 크기를 입력하세요 : ");
+		int input = sc.nextInt();
+		String arr[] = new String[input];
+		
+		sc.nextLine();
+		for(int i = 0; i < arr.length; i++) {
+			System.out.printf("%d번쨰 문자열 : " , i+1);
+			arr[i] = sc.nextLine();
+		}
+		
+		while(true) {
+			System.out.print("더 값을 입력하시겠습니까? [y/n]");
+			char yon = sc.next().charAt(0);
+			
+			if(yon == 'N' || yon == 'n') {
+				break;
+			}else if (yon == 'Y' || yon == 'y') {
+				System.out.print("입력하고 싶은 개수 : ");
+				int more = sc.nextInt();
+				String arr2[] = new String[arr.length + more];
+				sc.nextLine();
+				for(int i = 0; i<arr.length + more; i++ ) {
+					if(i < arr.length) {
+						arr2[i] = arr[i];
+					}else { 
+						System.out.printf("%d 번재 문자열 : ", i+1);
+						arr2[i]= sc.nextLine();
+					}	
+					
+				}
+				arr = arr2;
+			}else {
+				System.out.println("잘못 입력하셨습니다.");
+			}
+		}
+		System.out.println(Arrays.toString(arr));
 	}
 }
 
